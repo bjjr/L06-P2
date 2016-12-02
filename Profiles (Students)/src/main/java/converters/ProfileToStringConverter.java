@@ -10,8 +10,26 @@
 
 package converters;
 
-public class ProfileToStringConverter {
+import org.springframework.core.convert.converter.Converter;
+import org.springframework.stereotype.Component;
+import org.springframework.transaction.annotation.Transactional;
+
+import domain.Profile;
+
+@Component
+@Transactional
+public class ProfileToStringConverter implements Converter<Profile, String>{
 	
-	// TODO: Implement this controller according to the specification.
-	
+	@Override
+	public String convert(Profile profile) {
+		String res;
+		
+		if(profile == null) {
+			res = null;
+		} else {
+			res = String.valueOf(profile.getId());
+		}
+		
+		return res;
+	}
 }

@@ -38,7 +38,8 @@
 		<security:intercept-url pattern="/welcome/index.do" access="permitAll" />
 		
 		<!-- TODO: complete the security access control -->
-						
+		<security:intercept-url pattern="/profile/customer/**" access="hasRole('CUSTOMER')" />		
+					
 		<security:intercept-url pattern="/**" access="hasRole('NONE')" />
 
 		<security:form-login 
